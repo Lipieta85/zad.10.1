@@ -32,6 +32,8 @@
     "onchange": "^4.0.0"
   },
   "dependencies": {
+    "flickity": "^2.1.1",
+    "flickity-hash": "^1.0.3",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2"
   }

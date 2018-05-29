@@ -1,5 +1,14 @@
 $(document).ready(function () {
 
+  var elem = document.querySelector('.main-carousel');
+  var flkty = new Flickity(elem, {
+
+    hash: true,
+    pageDots: false,
+    cellAlign: 'center',
+    contain: true
+  });
+
   var $carousel = $('.main-carousel').flickity();
   var $progressBar = $('.progress-bar');
 

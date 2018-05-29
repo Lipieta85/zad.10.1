@@ -1,15 +1,5 @@
 $(document).ready(function () {
 
-  var elem = document.querySelector('.main-carousel');
-  var flkty = new Flickity(elem, {
-
-    hash: true,
-    pageDots: false,
-    cellAlign: 'center',
-    contain: true
-  });
-
-
   var $carousel = $('.main-carousel').flickity();
   var $progressBar = $('.progress-bar');
 
@@ -17,7 +7,6 @@ $(document).ready(function () {
     progress = Math.max(0, Math.min(1, progress));
     $progressBar.width(progress * 100 + '%');
   });
-
 
   var carouselData = Flickity.data($carousel[0])
   var progress = (carouselData.selectedIndex + 1) / carouselData.cells.length

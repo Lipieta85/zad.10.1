@@ -6,20 +6,6 @@ body {
   background-color: #e61010;
 }
 
-.main-carousel {
-  width: 100%;
-  height: auto;
-  margin-top: 10px;
-}
-
-.main-carousel p {
-  margin-right: 30px;
-  margin-left: 30px;
-  line-height: 1.5;
-  font-size: 20px;
-  color: #FFF;
-}
-
 .container {
   max-width: 1200px;
   width: 100%;
@@ -27,13 +13,24 @@ body {
   background-size: cover;
 }
 
+.main-carousel {
+  margin-top: 10px;
+}
+
+.main-carousel p {
+  padding: 60px;
+  margin-right: 30px;
+  margin-left: 30px;
+  line-height: 1.5;
+  font-size: 20px;
+  color: #FFF;
+}
+
 .carousel-cell {
   background-size: cover;
   padding-top: 10px;
   width: 100%;
-  /* full width */
-  /* height of carousel */
-  height: 550px;
+  height: 540px;
   margin-right: 10px;
   counter-increment: carousel-cell;
 }

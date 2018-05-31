@@ -18,52 +18,53 @@
         <a href="#carousel-cell4">Cell 4</a>,
         <a href="#carousel-cell5">Cell 5</a>
     </p>
-    <div class="main-carousel" data-flickity='{ "pageDots": false }'>
-        <div class="container" id="carousel-cell1">
-            <div class="carousel-cell cell1" style="background-image:url(https://images.unsplash.com/photo-1491900177661-4e1cd2d7cce2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0e5f7a670b5cd3ff8bbc7b21ef4e4461&auto=format&fit=crop&w=500&q=60);">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum."</p>
+    <script id="template-product-list" type="x-tmpl-mustache">
+        <div class="container" id={{ title }}>
+            <div class="carousel-cell {{ reset }}" style="background-image:url({{image}});">
+                <p>{{ text }}</p>
+                <ul>
+                {{{products}}}
+                </ul>   
             </div>
         </div>
-        <div class="container" id="carousel-cell2">
-            <div class="carousel-cell" style="background-image:url(https://images.unsplash.com/photo-1518157257481-612a75ffd429?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f46e0f8830b45212602eac72da98fb6&auto=format&fit=crop&w=500&q=60);">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum."</p>
-            </div>
-        </div>
-        <div class="container" id="carousel-cell3">
-            <div class="carousel-cell" style="background-image:url(https://images.unsplash.com/photo-1508182314998-3bd49473002f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=af394daae4bdbc4a95dc2204984b790d&auto=format&fit=crop&w=500&q=60);">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum."</p>
-            </div>
-        </div>
-        <div class="container" id="carousel-cell4">
-            <div class="carousel-cell" style="background-image:url(https://images.unsplash.com/photo-1510041883570-1c5b27d85cb8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=01c289e0c299345b66298cb5f62d37ea&auto=format&fit=crop&w=711&q=60);">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum."</p>
-            </div>
-        </div>
-        <div class="container" id="carousel-cell5">
-            <div class="carousel-cell" style="background-image:url(https://images.unsplash.com/photo-1519827737530-b255e4d1d0af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=adbba1760be6ef305d1532a3c626f9c1&auto=format&fit=crop&w=626&q=60);">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum."</p>
-            </div>
-        </div>
+    </script>
+    <script>
+        var productsData = [
+            {   
+                title: 'carousel-cell1',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                reset: 'cell1',
+                image: 'https://images.unsplash.com/photo-1491900177661-4e1cd2d7cce2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0e5f7a670b5cd3ff8bbc7b21ef4e4461&auto=format&fit=crop&w=500&q=60'
+            },
+            {   
+                title: 'carousel-cell2',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                reset: 'none',
+                image: 'https://images.unsplash.com/photo-1518157257481-612a75ffd429?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f46e0f8830b45212602eac72da98fb6&auto=format&fit=crop&w=500&q=60'
+            },
+            {
+                title: 'carousel-cell3',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                reset: 'none',
+                image: 'https://images.unsplash.com/photo-1508182314998-3bd49473002f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=af394daae4bdbc4a95dc2204984b790d&auto=format&fit=crop&w=500&q=60'
+            },
+            {   
+                title: 'carousel-cell4',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                reset: 'none',
+                image: 'https://images.unsplash.com/photo-1510041883570-1c5b27d85cb8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=01c289e0c299345b66298cb5f62d37ea&auto=format&fit=crop&w=711&q=60'
+            },
+            {   
+                title: "carousel-cell5",
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                reset: 'none',
+                image: 'https://images.unsplash.com/photo-1519827737530-b255e4d1d0af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=adbba1760be6ef305d1532a3c626f9c1&auto=format&fit=crop&w=626&q=60'
+            },
+
+        ];
+    </script>
+    <div class="main-carousel">
+        <div id="results"></div>
     </div>
     <div class="progress-bar"></div>
     <div class="button-group">
@@ -71,6 +72,7 @@
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/flickity.pkgd.min.js"></script>
+    <script src="js/mustache.js"></script>
     <script src="js/script.js"></script>
     <script src="js/hash.js"></script>
 </body>

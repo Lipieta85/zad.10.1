@@ -22,6 +22,8 @@ $(document).ready(function () {
     contain: true
   });
 
+  
+
   var $carousel = $('.main-carousel').flickity();
   var $progressBar = $('.progress-bar');
 
@@ -39,3 +41,27 @@ $(document).ready(function () {
     $carousel.flickity('selectCell', index);
   });
 });
+
+(function(){ 
+	  
+  	window.initMap = function() {
+		 
+		var uluru = productsData[0].coords;
+		
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 4,
+			center: uluru
+    });
+    
+		for (i = 0; i < 10; i++) {
+		var marker = new google.maps.Marker({
+			position: productsData[i].coords,
+			map: map
+		});
+  } 
+	}; 	
+})();  
+
+
+
+

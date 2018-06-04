@@ -22,7 +22,7 @@ $(document).ready(function () {
     contain: true
   });
 
-  
+
 
   var $carousel = $('.main-carousel').flickity();
   var $progressBar = $('.progress-bar');
@@ -42,25 +42,41 @@ $(document).ready(function () {
   });
 });
 
-(function(){ 
-	  
-  	window.initMap = function() {
-		 
-		var uluru = productsData[0].coords;
-		
-		var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 4,
-			center: uluru
+(function () {
+
+  var infos = document.getElementById('infos');
+
+  window.initMap = function () {
+
+    var uluru = productsData[0].coords;
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: uluru
     });
     
-		for (i = 0; i < 10; i++) {
-		var marker = new google.maps.Marker({
-			position: productsData[i].coords,
-			map: map
-		});
-  } 
-	}; 	
-})();  
+    for (var i = 0; i < productsData.length; i++) {
+      var marker = new google.maps.Marker({
+        position: productsData[i].coords,
+        map: map,
+        
+      });
+      
+      marker.addListener('click', function () {
+        var $carousel = $('.main-carousel').flickity();
+        var index = i;
+        $carousel.flickity('selectCell', index);
+
+        $carousel.on('change.flickity', function (event, index) {
+          console.log( 'Flickity change ' + index );
+        });
+      });
+
+        
+      
+    }
+  };
+})();
 
 
 

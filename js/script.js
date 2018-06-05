@@ -4,18 +4,12 @@ $(document).ready(function () {
 
   Mustache.parse(templateList);
 
-  var list = '';
-
   for (var i = 0; i < productsData.length; i++) {
-    console.log(productsData);
-    list += Mustache.render(templateList, productsData[i]);
+    document.querySelector('.main-carousel').innerHTML += Mustache.render(templateList, productsData[i])
   }
-
-  results.insertAdjacentHTML('afterend', list);
 
   var elem = document.querySelector('.main-carousel');
   var flkty = new Flickity(elem, {
-
     hash: true,
     pageDots: false,
     cellAlign: 'center',

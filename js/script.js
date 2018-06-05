@@ -1,17 +1,15 @@
+
 $(document).ready(function () {
 
   var templateList = document.getElementById('template-product-list').innerHTML;
 
   Mustache.parse(templateList);
 
-  var list = '';
 
   for (var i = 0; i < productsData.length; i++) {
-    console.log(productsData);
-    list += Mustache.render(templateList, productsData[i]);
+    document.querySelector('.main-carousel').innerHTML += Mustache.render(templateList, productsData[i])
   }
 
-  results.insertAdjacentHTML('afterend', list);
 
   var elem = document.querySelector('.main-carousel');
   var flkty = new Flickity(elem, {
@@ -44,8 +42,6 @@ $(document).ready(function () {
 
 (function () {
 
-  var infos = document.getElementById('infos');
-
   window.initMap = function () {
 
     var uluru = productsData[0].coords;
@@ -54,26 +50,27 @@ $(document).ready(function () {
       zoom: 4,
       center: uluru
     });
-    
+
     for (var i = 0; i < productsData.length; i++) {
       var marker = new google.maps.Marker({
         position: productsData[i].coords,
         map: map,
-        
+        index: i,
       });
-      
+
+      var $carousel = $('.main-carousel').flickity();
       marker.addListener('click', function () {
-        var $carousel = $('.main-carousel').flickity();
-        var index = i;
-        $carousel.flickity('selectCell', index);
 
-        $carousel.on('change.flickity', function (event, index) {
-          console.log( 'Flickity change ' + index );
-        });
+
+        $carousel.flickity('selectCell', this.index);
       });
 
-        
-      
+      $carousel.on('change.flickity', function (event, i) {
+
+        map.panTo(productsData[i].coords);
+
+        map.setZoom(5);
+      });
     }
   };
 })();

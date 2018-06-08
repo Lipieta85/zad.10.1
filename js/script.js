@@ -20,8 +20,6 @@ $(document).ready(function () {
     contain: true
   });
 
-
-
   var $carousel = $('.main-carousel').flickity();
   var $progressBar = $('.progress-bar');
 
@@ -59,8 +57,8 @@ $(document).ready(function () {
       });
 
       var $carousel = $('.main-carousel').flickity();
+      
       marker.addListener('click', function () {
-
 
         $carousel.flickity('selectCell', this.index);
       });
